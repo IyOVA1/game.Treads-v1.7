@@ -195,7 +195,7 @@ export function PlayerTank() {
     tmp.local.copy(tmp.yawQ).invert().multiply(tmp.target);
     tmp.tilt.slerp(tmp.local, 1 - Math.exp(-8 * dt));
     g.quaternion.copy(tmp.yawQ).multiply(tmp.tilt);
-    g.position.set(pl.pos.x, pl.pos.y + h / 2 + 0.1, pl.pos.z);
+    g.position.set(pl.pos.x, pl.pos.y, pl.pos.z); // GLB origin is ground
 
     if (turretRef.current) {
       turretRef.current.rotation.order = "YXZ";

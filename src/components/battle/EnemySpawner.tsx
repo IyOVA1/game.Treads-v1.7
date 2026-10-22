@@ -298,7 +298,7 @@ function EnemyTank({ spawn, onGone }: { spawn: EnemySpawn; onGone: () => void })
     tmp.local.copy(tmp.yawQ).invert().multiply(tmp.target);
     tmp.tilt.slerp(tmp.local, 1 - Math.exp(-8 * dt));
     g.quaternion.copy(tmp.yawQ).multiply(tmp.tilt);
-    g.position.set(state.pos.x, state.pos.y + 0.55, state.pos.z);
+    g.position.set(state.pos.x, state.pos.y, state.pos.z); // GLB origin is ground
 
     // Aim turret at player (world-relative)
     if (turretRef.current && pl.alive) {
